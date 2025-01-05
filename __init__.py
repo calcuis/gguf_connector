@@ -1,6 +1,6 @@
 # !/usr/bin/env python3
 
-__version__="1.0.2"
+__version__="1.0.5"
 
 def __init__():
     import argparse
@@ -17,6 +17,7 @@ def __init__():
     subparsers.add_parser('i', help='[i] i/o web mirror')
     subparsers.add_parser('w', help='[w] page/container')
     subparsers.add_parser('y', help='[y] download comfy')
+    subparsers.add_parser('n', help='[n] clone node')
     subparsers.add_parser('r', help='[r] metadata reader')
     subparsers.add_parser('r2', help='[r2] metadata fast reader (beta)')
     subparsers.add_parser('t', help='[t] safetensors convertor (beta)')
@@ -29,6 +30,8 @@ def __init__():
     args = parser.parse_args()
     if args.subcommand == 'm':
         from gguf_connector import m
+    if args.subcommand == 'n':
+        from gguf_connector import n
     elif args.subcommand=="r":
         from gguf_connector import r
     elif args.subcommand=="r2":
